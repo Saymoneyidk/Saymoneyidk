@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToFollow</title>
+    <link rel="icon" href="SOCKY.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #833);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ecf0f1;
+        }
+        .header {
+            width: 100%;
+            height: 40%;
+            background-image: url('header.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .header img {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+            transition: transform 0.3s ease;
+        }
+        .header img:active {
+            transform: scale(0.9);
+        }
+        .container {
+            width: 100%;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 5px;
+            font-size: 2.5em;
+            color: #ecf0f1;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1em;
+            background: linear-gradient(to right, #e91e63, #2196f3, #ffeb3b, #4caf50, #ff9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowText 5s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes rainbowText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav button {
+            padding: 15px 32px;
+            margin: 10px 0;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+        }
+        nav button:hover {
+            background-color: #4cae4c;
+        }
+        .back-button {
+            background-color: #7f8c8d;
+            margin-top: 20px;
+        }
+        .stripe {
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: rgba(52, 73, 94, 0.5);
+            animation: move 8s linear infinite;
+            z-index: -1;
+        }
+        .stripe:nth-child(1) { top: 5%; background: #f06; animation-delay: 0s; }
+        .stripe:nth-child(2) { top: 15%; background: #833; animation-delay: 2s; }
+        .stripe:nth-child(3) { top: 25%; background: #f06; animation-delay: 4s; }
+        .stripe:nth-child(4) { top: 35%; background: #833; animation-delay: 6s; }
+        .stripe:nth-child(5) { top: 45%; background: #f06; animation-delay: 8s; }
+        .stripe:nth-child(6) { top: 55%; background: #833; animation-delay: 10s; }
+        .stripe:nth-child(7) { top: 65%; background: #f06; animation-delay: 12s; }
+        .stripe:nth-child(8) { top: 75%; background: #833; animation-delay: 14s; }
+        .stripe:nth-child(9) { top: 85%; background: #f06; animation-delay: 16s; }
+        .git-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .git-icon:hover {
+            transform: scale(1.1);
+        }
+        .tooltip {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .git-icon:hover + .tooltip {
+            opacity: 1;
+        }
+        @keyframes move {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="SOCKY.png" alt="Icona SOCKY" onclick="playSound()">
+    </div>
+    <div class="container">
+        <header>
+            <h1>Follow them too!</h1>
+        <h2>please follow them</h2>
+        <nav>
+            <button onclick="location.href='https://www.youtube.com/@spl4t00ner2'">(my cousin) SPL4T00NER</button>
+            <button onclick="location.href='https://www.youtube.com/@wolfidogghi'">(my sister) Wolfidogghi</button>
+            <button class="back-button" onclick="window.history.back()">Back</button>
+        </nav>
+    </div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+    <div class="stripe"></div>
+
+    <img src="GIT.png" alt="Website Repository" class="git-icon" onclick="location.href='https://github.com/Saymoneyidk/Saymoneyidk'">
+    <div class="tooltip">Website Repository</div>
+
+    <script>
+        function playSound() {
+            new Audio('piru.mp3').play();
+        }
+    </script>
+</body>
+</html>
